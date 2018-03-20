@@ -35,7 +35,7 @@ class Student
      VALUES (?, ?)
    SQL
     DB[:conn].execute(sql, self.name, self.grade)
-    @id = DB[:conn].execute("SELECT id FROM students WHERE name = ?", self.name).flatten[0]
+    @id = DB[:conn].execute("SELECT id FROM students WHERE id = (SELECT id FROM students ORDER BY id DESC LIMIT 1)").flatten[0]
  end
 
  def self.create(name:, grade:)
