@@ -6,7 +6,7 @@ describe "Student" do
   before(:each) do
     DB[:conn].execute("DROP TABLE IF EXISTS students")
   end
-
+  # binding.pry
   describe "attributes" do
     it 'has a name and a grade' do
       student = Student.new("Tiffany", "11th")
